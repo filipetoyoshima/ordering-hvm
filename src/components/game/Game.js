@@ -9,6 +9,7 @@ class Game extends React.Component {
         this.state = {
             cards: [],
             last_selected: null,
+            did_player_sorted: false,
         }
 
         this.selectCard = this.selectCard.bind(this);
@@ -31,6 +32,11 @@ class Game extends React.Component {
     render () {
         return (
             <div>
+                {this.state.did_player_sorted ?
+                    (<h1>Finished!</h1>)
+                :
+                    (<></>)
+                }
                 {this.state.cards.map((card, index) => {
                     let selected = false;
                     
@@ -78,6 +84,25 @@ class Game extends React.Component {
                 cards: arr,
             })
         }
+
+        this.checkOrder();
+    }
+
+    checkOrder () {
+        let arr = this.state.cards;
+        let prev = arr[0];
+        let i = 0;
+
+        for (; i < arr.length && prev <= arr[i]; i++) {
+            prev = arr[i];
+        }
+
+        if (i == arr.length) {
+            this.setState({
+                did_player_sorted: true
+            })
+        }
+        return false;
     }
 }
 

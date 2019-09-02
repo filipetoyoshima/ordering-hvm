@@ -1,5 +1,5 @@
 import React from 'react'
-import Number_Box from '../number_box/Number_Box';
+import NumberBoxContainer from '../number_box_container/NumberBoxContainer';
 
 import './Game.css'
 
@@ -37,30 +37,12 @@ class Game extends React.Component {
                 :
                     (<></>)
                 }
-                {this.state.cards.map((card, index) => {
-                    let selected = false;
-                    
-                    if (index == this.state.last_selected) {
-                        selected = true;
-                    }
-
-                    return (
-                        <div
-                            className='card'
-                            onClick={() => this.selectCard(index)}
-                            key={'cont-' + index}
-                        >
-                            <Number_Box
-                                number={card}
-                                is_open={true}
-                                index={index}
-                                key={index}
-                                selected={selected}
-                            />
-                        </div>
-                    );
-                }
-                )}
+                <NumberBoxContainer
+                    player='PLAYER'
+                    cards={this.state.cards}
+                    last_selected={this.state.last_selected}
+                    selectCard={this.selectCard}
+                />
             </div>
         )
     }
@@ -72,20 +54,25 @@ class Game extends React.Component {
                 last_selected: index,
             })
         } else {
-            let arr = this.state.cards;
-            let aux = arr[previous];
-            arr[previous] = arr[index];
-            arr[index] = aux;
-            
-            console.log(arr, 'arr')
+            this.swap(previous, index);
 
             this.setState ({
-                last_selected: null,
-                cards: arr,
+                last_selected: null
             })
         }
 
         this.checkOrder();
+    }
+
+    swap (i, j) {
+        let arr = this.state.cards;
+        let aux = arr[i];
+        arr[i] = arr[j];
+        arr[j] = aux;
+        
+        this.setState ({
+            cards: arr,
+        })
     }
 
     checkOrder () {

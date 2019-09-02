@@ -7,8 +7,11 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: []
+            cards: [],
+            last_selected: null,
         }
+
+        this.selectCard = this.selectCard.bind(this);
     }
 
     componentDidMount () {
@@ -28,20 +31,53 @@ class Game extends React.Component {
     render () {
         return (
             <div>
-                {this.state.cards.map((card, index) =>
-                    <div
-                        className='card'
-                    >
-                        <Number_Box
-                            number={card}
-                            is_open={true}
-                            index={index}
-                            key={index}
-                        />
-                    </div>
+                {this.state.cards.map((card, index) => {
+                    let selected = false;
+                    
+                    if (index == this.state.last_selected) {
+                        selected = true;
+                    }
+
+                    return (
+                        <div
+                            className='card'
+                            onClick={() => this.selectCard(index)}
+                            key={'cont-' + index}
+                        >
+                            <Number_Box
+                                number={card}
+                                is_open={true}
+                                index={index}
+                                key={index}
+                                selected={selected}
+                            />
+                        </div>
+                    );
+                }
                 )}
             </div>
         )
+    }
+
+    selectCard (index) {
+        let previous = this.state.last_selected;
+        if (previous === null) {
+            this.setState ({
+                last_selected: index,
+            })
+        } else {
+            let arr = this.state.cards;
+            let aux = arr[previous];
+            arr[previous] = arr[index];
+            arr[index] = aux;
+            
+            console.log(arr, 'arr')
+
+            this.setState ({
+                last_selected: null,
+                cards: arr,
+            })
+        }
     }
 }
 

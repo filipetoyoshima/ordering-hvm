@@ -1,6 +1,5 @@
 import React from 'react'
 import './Number_Box.css'
-import { connect } from 'react-redux';
 
 
 class NumberBox extends React.Component {
@@ -37,20 +36,12 @@ class NumberBox extends React.Component {
 
     getClass() {
         let class_name = 'number-box'
-        if (this.props.win_game && this.props.is_open) {
-            if (this.props.turn_player) {
-                class_name = 'number-box-winner';
-            } else {
-                class_name = 'number-box-loser';
-            }
+        if (this.props.selected) {
+            class_name = 'number-box-winner';
         }
         return class_name
     }
 }
 
-const mapStateToProps = state => { return { ...state } };
 
-const mapDispatchToProps = dispatch => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NumberBox);
+export default NumberBox;

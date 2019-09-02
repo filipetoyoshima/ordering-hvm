@@ -1,5 +1,6 @@
 import React from 'react'
 import NumberBoxContainer from '../number_box_container/NumberBoxContainer';
+import BubbleSort from '../../sortingAlgorithms/bubbleSort';
 
 import './Game.css'
 
@@ -8,6 +9,8 @@ class Game extends React.Component {
         super(props);
         this.state = {
             cards: [],
+            bubble: null,
+            bubble_cards: [],
             last_selected: null,
             did_player_sorted: false,
         }
@@ -26,6 +29,8 @@ class Game extends React.Component {
 
         this.setState({
             cards: arr,
+            bubble_cards: arr.slice(0),
+            bubble: new BubbleSort(arr.slice(0)),
         })
     }
 
@@ -37,11 +42,18 @@ class Game extends React.Component {
                 :
                     (<></>)
                 }
+                <h2>This is your array</h2>
                 <NumberBoxContainer
                     player='PLAYER'
                     cards={this.state.cards}
                     last_selected={this.state.last_selected}
                     selectCard={this.selectCard}
+                />
+                <br/>
+                <h2>This is Bubble Sort</h2>
+                <NumberBoxContainer
+                    player='BOT'
+                    cards={this.state.bubble_cards}
                 />
             </div>
         )
@@ -57,7 +69,8 @@ class Game extends React.Component {
             this.swap(previous, index);
 
             this.setState ({
-                last_selected: null
+                last_selected: null,
+                bubble_cards: this.state.bubble.step(),
             })
         }
 

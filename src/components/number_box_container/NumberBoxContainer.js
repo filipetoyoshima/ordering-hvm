@@ -32,6 +32,21 @@ class NumberBoxContainer extends React.Component {
                                 />
                             </div>
                         );
+                    } else {
+                        return (
+                            <div
+                                className='card'
+                                key={'cont-' + index}
+                            >
+                                <Number_Box
+                                    number={card}
+                                    is_open={true}
+                                    index={index}
+                                    key={index}
+                                    selected={selected}
+                                />
+                            </div>
+                        )
                     }
 
                     

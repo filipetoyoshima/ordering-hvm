@@ -70,8 +70,13 @@ class Game extends React.Component {
 
             this.setState ({
                 last_selected: null,
-                bubble_cards: this.state.bubble.step(),
             })
+
+            if (index != previous) {
+                this.setState({
+                    bubble_cards: this.state.bubble.step()
+                })
+            }
         }
 
         this.checkOrder();

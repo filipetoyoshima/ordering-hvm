@@ -1,0 +1,32 @@
+body {
+    background-color: royalblue;
+}
+
+label {
+    margin: 30px 10px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+}
+
+input {
+    margin: 30px 5px;
+    width: 100px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    font-size: 30px;
+    border-radius: 15%;
+}
+
+button {
+    width: 70px;
+    height: 60px;
+    border-radius: 15%;
+    font-size: 30px;
+}
+
+.container {
+    margin: auto;
+    text-align: center;
+    padding: 20vh 5vw;
+}

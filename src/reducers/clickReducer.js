@@ -3,7 +3,6 @@ const initialState = {
 };
 
 export const clickReducer = (state = initialState, action) => {
-    console.log(action, 'reducer');
     switch (action.type) {
         case 'CLICK_UPDATE_BUTTON':
             return {

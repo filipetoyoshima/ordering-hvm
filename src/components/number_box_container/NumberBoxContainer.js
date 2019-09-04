@@ -7,52 +7,53 @@ class NumberBoxContainer extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                {this.props.cards.map((card, index) => {
-                    let selected = false;
-                    
-                    if (index == this.props.last_selected) {
-                        selected = true;
-                    }
+        if (Array.isArray(this.props.cards)) {
+            return (
+                <div>
+                    {this.props.cards.map((card, index) => {
+                        let selected = false;                            
+                        if (this.props.player === 'PLAYER') {
+                            if (index == this.props.last_selected) {
+                                selected = true;
+                            }
 
-                    if (this.props.player === 'PLAYER') {
-                        return (
-                            <div
-                                className='card'
-                                onClick={() => this.props.selectCard(index)}
-                                key={'cont-' + index}
-                            >
-                                <Number_Box
-                                    number={card}
-                                    is_open={true}
-                                    index={index}
-                                    key={index}
-                                    selected={selected}
-                                />
-                            </div>
-                        );
-                    } else {
-                        return (
-                            <div
-                                className='card'
-                                key={'cont-' + index}
-                            >
-                                <Number_Box
-                                    number={card}
-                                    is_open={true}
-                                    index={index}
-                                    key={index}
-                                    selected={selected}
-                                />
-                            </div>
-                        )
-                    }
-
-                    
-                })}  
-            </div>
-        )
+                            return (
+                                <div
+                                    className='card'
+                                    onClick={() => this.props.selectCard(index)}
+                                    key={'cont-' + index}
+                                >
+                                    <Number_Box
+                                        number={card}
+                                        is_open={true}
+                                        index={index}
+                                        key={index}
+                                        selected={selected}
+                                    />
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div
+                                    className='card'
+                                    key={'cont-' + index}
+                                >
+                                    <Number_Box
+                                        number={card}
+                                        is_open={true}
+                                        index={index}
+                                        key={index}
+                                        selected={selected}
+                                    />
+                                </div>
+                            )
+                        }                        
+                    })}  
+                </div>
+            )
+        } else {
+            return (<></>)
+        }
     }
 }
 

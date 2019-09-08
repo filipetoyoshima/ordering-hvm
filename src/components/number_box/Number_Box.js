@@ -3,7 +3,7 @@ import './Number_Box.css'
 
 
 class NumberBox extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         // Receive by props:
         // - is_open, a boolean value that tell if the box is open
@@ -38,7 +38,11 @@ class NumberBox extends React.Component {
         let class_name = 'number-box'
         if (this.props.selected) {
             class_name = 'number-box-winner';
+        } else if (this.props.loser) {
+            class_name = 'number-box-loser';
         }
+
+        console.log(class_name);
         return class_name
     }
 }

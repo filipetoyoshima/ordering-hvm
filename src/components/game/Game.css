@@ -6,3 +6,9 @@ body {
     display: inline-block;
     text-align: center;
 }
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

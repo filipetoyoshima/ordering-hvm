@@ -12,7 +12,7 @@ class BubbleSort {
         while (arr[actual] <= arr[actual + 1]) {
 
             actual = (actual + 1) % (arr.length - 1);
-
+            
             if (actual == this.actual_bubble) {
                 return this.arr;
             }
@@ -20,7 +20,6 @@ class BubbleSort {
 
         this.swap(actual, actual + 1);
         this.actual_bubble = (actual + 1) % (arr.length - 1);
-
         return this.arr;
     }
 

@@ -3,7 +3,6 @@ class SelectionSort {
         this.arr = arr;
         this.i = 0;
 
-        console.log(this.arr);
     }
 
     step () {

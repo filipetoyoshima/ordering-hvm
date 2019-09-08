@@ -115,7 +115,7 @@ class Game extends React.Component {
                 last_selected: null,
             })
 
-            if (index != previous) {
+            if (index !== previous) {
                 this.setState({
                     insertion_cards: this.state.insertion.step(),
                     bubble_cards: this.state.bubble.step(),
@@ -190,7 +190,7 @@ class Game extends React.Component {
             prev = arr[i];
         }
 
-        if (i == arr.length) {
+        if (i === arr.length) {
             result = true;
         }
         console.log(result);

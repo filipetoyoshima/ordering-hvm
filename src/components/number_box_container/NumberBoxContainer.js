@@ -4,6 +4,9 @@ import Number_Box from '../number_box/Number_Box'
 class NumberBoxContainer extends React.Component {
     constructor(props) {
         super(props);
+        this.state ={
+
+        };
     }
 
     render() {
@@ -14,7 +17,7 @@ class NumberBoxContainer extends React.Component {
                     {this.props.cards.map((card, index) => {
                         let selected = false;
                         if (this.props.player === 'PLAYER') {
-                            if (index == this.props.last_selected) {
+                            if (index === this.props.last_selected) {
                                 selected = true;
                             }
 

@@ -17,7 +17,7 @@ class SelectionSort {
                 }
             }
     
-            if (small_index != this.i) {
+            if (small_index !== this.i) {
                 this.swap(small_index, this.i);
                 this.i++;
                 return this.arr;

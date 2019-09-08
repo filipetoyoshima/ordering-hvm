@@ -13,7 +13,7 @@ class BubbleSort {
 
             actual = (actual + 1) % (arr.length - 1);
             
-            if (actual == this.actual_bubble) {
+            if (actual === this.actual_bubble) {
                 return this.arr;
             }
         }

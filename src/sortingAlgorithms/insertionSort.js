@@ -2,22 +2,33 @@ class insertionSort {
     constructor(arr) {
         this.arr = arr;
         this.i = 1;
-        this.j = 0;
+        this.j = 1;
     }
 
     step() {
-        let i = this.i % (arr.length - 1);
-        let j = this.i;
         let arr = this.arr;
+        
+        while (this.i < arr.length) {
+            if (arr[this.j] < arr[this.j - 1]) {
+                console.log('menor')
 
-        while ((j !== 0) && (arr[j] < arr[j - 1])){
-            swap(j, j - 1);
+                this.swap(this.j, this.j-1);
+                this.j--;
+                
+                if (this.j <= 0) {
+                    this.i++;
+                    this.j = this.i;
+                }
+
+                break;
+
+            } else {
+                this.i++;
+                this.j = this.i;
+            }
         }
-
-        this.i++;
-
+        
         return this.arr;
-
     }
 
     swap(i, j) {

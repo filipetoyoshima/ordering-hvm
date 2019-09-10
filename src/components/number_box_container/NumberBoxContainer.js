@@ -10,7 +10,6 @@ class NumberBoxContainer extends React.Component {
     }
 
     render() {
-        console.log(this.props.selected);
         if (Array.isArray(this.props.cards)) {
             return (
                 <div>

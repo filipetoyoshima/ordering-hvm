@@ -11,6 +11,7 @@ class SelectionSort {
 
         while (this.i < this.arr.length) {
             small_index = this.i;
+            
             for (j = this.i+1; j < this.arr.length; j++) {
                 if (this.arr[j] < this.arr[small_index]) {
                     small_index = j;

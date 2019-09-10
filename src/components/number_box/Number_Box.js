@@ -42,7 +42,6 @@ class NumberBox extends React.Component {
             class_name = 'number-box-loser';
         }
 
-        console.log(class_name);
         return class_name
     }
 }

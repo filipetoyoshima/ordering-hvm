@@ -2,7 +2,7 @@ import React from 'react'
 import NumberBoxContainer from '../number_box_container/NumberBoxContainer';
 import BubbleSort from '../../sortingAlgorithms/bubbleSort';
 import SelectionSort from '../../sortingAlgorithms/selectionSort';
-import InsertionSort from '../../sortingAlgorithms/selectionSort';
+import InsertionSort from '../../sortingAlgorithms/insertionSort';
 
 import './Game.css'
 
@@ -193,7 +193,7 @@ class Game extends React.Component {
         if (i === arr.length) {
             result = true;
         }
-        console.log(result);
+
         return result;
     }
 }
